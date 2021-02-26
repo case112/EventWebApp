@@ -6,22 +6,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EventWebApp.Models;
+using EventWebApp.Data;
 
 namespace EventWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _db;
+
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
 
+        // GET Index
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Event> objList = _db.Events;
+            return View(objList);
         }
+
 
         public IActionResult Privacy()
         {

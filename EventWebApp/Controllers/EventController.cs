@@ -35,7 +35,7 @@ namespace EventWebApp.Controllers
             {
                 _db.Events.Add(obj);
                 _db.SaveChanges();
-                return Redirect("~");
+                return Redirect("~/");
             }
             return View(obj);
 

@@ -17,5 +17,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Views\Event\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\js\moment %28copy%29.min.js" />
   </ItemGroup>
 </Project>

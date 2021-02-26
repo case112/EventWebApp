@@ -151,3 +151,4 @@
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/bin/Debug/net5.0/runtimes/win-x64/native/e_sqlite3.dll
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/bin/Debug/net5.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/EventWebApp.MvcApplicationPartsAssemblyInfo.cs
+/Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Event/Create.cshtml.g.cs

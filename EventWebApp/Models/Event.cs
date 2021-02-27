@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using EventWebApp.CustomValidation;
 
 namespace EventWebApp.Models
 {
@@ -12,7 +13,8 @@ namespace EventWebApp.Models
 
         public string Name { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd hh:mm}")]
+        [Required(ErrorMessage = "See on kohustuslik väli!")]
+        [DateFutureOnly(ErrorMessage = "Ürituse toimumisaeg peab olema tulevikus!")]
         public DateTime StartDate { get; set; }
 
         public string Location { get; set; }

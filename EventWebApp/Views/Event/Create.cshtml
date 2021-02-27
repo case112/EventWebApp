@@ -16,7 +16,7 @@
                     <div>
                         <label asp-for="StartDate" class="control-label"></label>
                         <div class='input-group date' id='datepicker'>
-                            <input asp-for="StartDate" type="text" class="form-control"  value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" />
+                            <input asp-for="StartDate" type="text" class="form-control" value="@DateTime.Now.ToString("MM/dd/yyyy HH:mm")" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -53,22 +53,6 @@
 @section Scripts{
     @{
         <partial name="_ValidationScriptsPartial" />
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-        <script>$(function () {
-                $('#datepicker').datetimepicker();
-            });</script>
-
-
-            //<link src="~/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
-            //<script type="text/javascript" src="~/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-            //<script type="text/javascript" src="~/js/locales/bootstrap-datetimepicker.ee.js" charset="UTF-8"></script>
-
-     }
+        <partial name="_DateTimePicker" />
+    }
 }

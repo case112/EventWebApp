@@ -14,7 +14,7 @@
         "outputPath": "/Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/oskar/.nuget/NuGet/NuGet.Config"
+          "/Users/oskar/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

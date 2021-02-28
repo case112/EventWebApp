@@ -19,7 +19,7 @@ namespace EventWebApp.Controllers
             _db = db;
         }
 
-        // GET create
+        // GET Create
         public IActionResult Create()
         {
             return View();
@@ -40,5 +40,7 @@ namespace EventWebApp.Controllers
             return View(obj);
 
         }
+
+
     }
 }

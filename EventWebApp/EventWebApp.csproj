@@ -38,6 +38,5 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\js\moment %28copy%29.min.js" />
-    <Content Remove="Views\Shared\_DateTimePicker.cshtml" />
   </ItemGroup>
 </Project>

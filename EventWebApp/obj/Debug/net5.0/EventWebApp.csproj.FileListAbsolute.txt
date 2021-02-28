@@ -154,3 +154,5 @@
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Event/Create.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Shared/_DateTimePicker.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Event/Details.cshtml.g.cs
+/Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Attendee/Create.cshtml.g.cs
+/Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Attendee/Index.cshtml.g.cs

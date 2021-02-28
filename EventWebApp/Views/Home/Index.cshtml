@@ -29,7 +29,10 @@
                         Info
                     </th>
                     <th>
-                        Tegevus
+                        Tegevus1
+                    </th>
+                    <th>
+                        Tegevus2
                     </th>
 
                 </tr>
@@ -44,7 +47,14 @@
                     <td width="20%">@obj.StartDate</td>
                     <td width="20%">@obj.Location</td>
                     <td width="20%">@obj.Details</td>
-                    <td width="20%">
+                    <td width="10%">
+                        <form asp-controller="Attendee" asp-action="Create" asp-route-Id="@obj.Id">
+                            <button type="submit" class="btn btn-success">
+                                Lisa osaleja
+                            </button>
+                        </form>
+                    </td>
+                    <td width="10%">
                         <form asp-action="Delete" asp-route-Id="@obj.Id">
                             <button type="submit" class="btn btn-danger">
                                 Kustuta

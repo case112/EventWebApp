@@ -19,13 +19,13 @@ namespace EventWebApp.Controllers
             _db = db;
         }
 
-        // GET Create
+        // GET Event Create
         public IActionResult Create()
         {
             return View();
         }
 
-        //POST Create
+        //POST Event Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Event obj)
@@ -41,7 +41,7 @@ namespace EventWebApp.Controllers
 
         }
 
-        // GET Detail
+        // GET Event Details
         public IActionResult Details(int? id)
         {
 

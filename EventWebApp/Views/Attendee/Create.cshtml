@@ -1,0 +1,71 @@
+﻿@model EventWebApp.Models.Attendee
+
+<form method="post" asp-action="Create">
+    <div class="border p-5">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Osaleja lisamine</h2>
+        </div>
+
+        <div class="container">
+        
+
+            <input asp-for="EventId" value="@ViewData["EventIdFromUrl"]" hidden />
+
+            
+            <div class="form-row">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="IdCode"></label>
+                <input asp-for="IdCode" class="form-control" />
+                <span asp-validation-for="IdCode" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="Payment"></label>
+                <div>
+                    <select asp-for="Payment" asp-items="Html.GetEnumSelectList(typeof (Payment))"></select>
+                </div>
+            </div>
+            <div class="form-row">
+                <label asp-for="ParticipantCount"></label>
+                <input asp-for="ParticipantCount" class="form-control" />
+                <span asp-validation-for="ParticipantCount" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                <label asp-for="Details"></label>
+                <input asp-for="Details" class="form-control" />
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+
+
+        </div>
+        <div class="form-group row">
+            <div>
+                <div class="col">
+                    <input type="submit" class="btn btn-info" value="Salvesta" />
+                </div>
+                <div class="col">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Katkesta</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+        <partial name="_DateTimePicker" />
+    }
+}

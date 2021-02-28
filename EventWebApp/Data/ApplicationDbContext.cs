@@ -11,5 +11,6 @@ namespace EventWebApp.Data
         }
 
         public DbSet<Event> Events { get; set; }
+        public DbSet<Attendee> Attendees { get; set; }
     }
 }

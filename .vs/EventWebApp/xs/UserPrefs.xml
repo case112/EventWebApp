@@ -1,27 +1,24 @@
 ﻿<Properties StartupConfiguration="{CA2EE378-672B-4A2E-93BE-A6C35243A62C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Views/Event/Details.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Controllers/HomeController.cs">
     <Files>
-      <File FileName="EventWebApp/Data/ApplicationDbContext.cs" Line="12" Column="1" />
-      <File FileName="EventWebApp/Controllers/HomeController.cs" />
-      <File FileName="EventWebApp/Models/Event.cs" />
+      <File FileName="EventWebApp/Controllers/HomeController.cs" Line="30" Column="22" />
+      <File FileName="EventWebApp/Models/Event.cs" Line="10" Column="21" />
       <File FileName="EventWebApp/Controllers/EventController.cs" />
       <File FileName="EventWebApp/Views/Event/Create.cshtml" />
       <File FileName="EventWebApp/Views/Home/Index.cshtml" />
-      <File FileName="EventWebApp/Views/Event/Details.cshtml" Line="18" Column="1" />
+      <File FileName="EventWebApp/Views/Event/Details.cshtml" Line="30" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EventWebApp" expanded="True">
             <Node name="EventWebApp" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Migrations" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
+              </Node>
+              <Node name="Data" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Event" expanded="True">
-                  <Node name="Details.cshtml" selected="True" />
-                </Node>
-                <Node name="Home" expanded="True" />
+                <Node name="Event" expanded="True" />
               </Node>
             </Node>
           </Node>

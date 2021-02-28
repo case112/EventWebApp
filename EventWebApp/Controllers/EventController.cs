@@ -41,6 +41,22 @@ namespace EventWebApp.Controllers
 
         }
 
+        // GET Detail
+        public IActionResult Details(int? id)
+        {
+
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Events.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+
+        }
 
     }
 }

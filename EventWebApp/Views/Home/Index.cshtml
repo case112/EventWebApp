@@ -38,7 +38,9 @@
                 @foreach (var obj in Model)
                 {
                 <tr>
-                    <td width="20%">@obj.Name</td>
+                    <td width="20%">
+                        <a asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">@obj.Id</a>
+                    </td>
                     <td width="20%">@obj.StartDate</td>
                     <td width="20%">@obj.Location</td>
                     <td width="20%">@obj.Details</td>

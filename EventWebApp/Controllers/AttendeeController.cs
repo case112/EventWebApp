@@ -21,6 +21,7 @@ namespace EventWebApp.Controllers
 
 
         // GET Attendee Create
+        [HttpGet]
         public IActionResult Create(int? id)
         {
             if (id == null || id == 0)
@@ -33,6 +34,8 @@ namespace EventWebApp.Controllers
                 return NotFound();
             }
 
+            ViewData["EventIdFromUrl"] = id;
+
             return View();
 
         }
@@ -40,8 +43,9 @@ namespace EventWebApp.Controllers
         //POST Attendee Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Attendee obj, int? id)
+        public IActionResult Create(int? id, Attendee obj)
         {
+
 
             if (ModelState.IsValid)
             {

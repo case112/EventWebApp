@@ -1,34 +1,68 @@
-﻿@model EventWebApp.Models.Event
-
+﻿@model EventWebApp.Models.ViewModels.EventVM
 @{
     ViewData["Title"] = "Details";
+    var id = @ViewData["EventIdFromUrl"];
 }
 
 <div class="border p-5">
     <div class="form-group row">
-        <h2 class="text-black-50 pl-3">Üritus</h2>
+        <h2 class="text-black-50 pl-3">Osavõtjad</h2>
     </div>
 
     <div class="container">
 
+        @foreach (var obj in Model.Events)
+        {
+            <div>
+                <p>Ürituse nimi: @obj.Name</p>
+            </div>
 
-        <div class="row">
-            <p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+            <div>
+                <p>Toimumisaeg: @obj.StartDate</p>
+            </div>
+
+            <div>
+                <p>Koht: @obj.Details</p>
+            </div>
+
+        }
+
+        <div>
+            <p>Osavõtjad: </p>
         </div>
 
-        <div class="row">
-            <p>@Html.DisplayNameFor(model => model.StartDate): @Html.DisplayFor(model => model.StartDate)</p>
-        </div>
+        <table>
+            <tbody>
+                @foreach (var attendee in Model.Attendees)
+                {
+                <tr>
 
-        <div class="row">
-            <p>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)</p>
-        </div>
+                    <td width="35%">@attendee.Name @attendee.LastName</td>
+                    <td width="35%">@attendee.IdCode</td>
+                    <td width="15%">
+                        <form asp-controller="Attendee" asp-action="Update" asp-route-Id="@attendee.Id">
+                            <button type="submit" class="btn btn-success">
+                                Muuda
+                            </button>
+                        </form>
+                    </td>
+                    <td width="15%">
+                        <form asp-controller="Attendee" asp-action="Delete" asp-route-Id="@attendee.Id">
+                            <button type="submit" class="btn btn-danger">
+                                Kustuta
+                            </button>
+                        </form>
+                    </td>
 
-        <div class="row">
-            <p>@Html.DisplayNameFor(model => model.Details): @Html.DisplayFor(model => model.Details)</p>
-        </div>
 
-  
+
+
+
+                </tr>
+                }
+            </tbody>
+        </table>
+
 
 
 
@@ -36,10 +70,7 @@
     <div class="form-group row">
         <div>
             <div class="col">
-                <input type="submit" class="btn btn-info" value="Salvesta" />
-            </div>
-            <div class="col">
-                <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Katkesta</a>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Tagasi avalehele</a>
             </div>
         </div>
     </div>

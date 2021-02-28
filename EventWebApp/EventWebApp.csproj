@@ -36,6 +36,7 @@
     <Folder Include="wwwroot\lib\ajax\libs\twitter-bootstrap\3.3.7\fonts\" />
     <Folder Include="CustomValidation\" />
     <Folder Include="Views\Attendee\" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\js\moment %28copy%29.min.js" />

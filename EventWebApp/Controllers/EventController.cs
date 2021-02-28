@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using EventWebApp.Data;
 using EventWebApp.Models;
+using EventWebApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -54,7 +56,17 @@ namespace EventWebApp.Controllers
             {
                 return NotFound();
             }
-            return View(obj);
+
+            var EventAttendeeViewModel = new EventVM
+            {
+
+                Events = _db.Events.Where(e => e.Id == id),
+                Attendees = _db.Attendees.Where(a => a.EventId == id)
+
+            };
+
+
+            return View(EventAttendeeViewModel);
 
         }
 

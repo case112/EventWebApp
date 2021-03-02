@@ -70,5 +70,20 @@ namespace EventWebApp.Controllers
 
         }
 
+        //POST Event Delete
+        [HttpPost]
+        public IActionResult Delete(int? id)
+        {
+            var obj = _db.Events.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _db.Events.Remove(obj);
+            _db.SaveChanges();
+            return Redirect("~/");
+        }
+
     }
 }

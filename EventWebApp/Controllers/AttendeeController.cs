@@ -61,5 +61,26 @@ namespace EventWebApp.Controllers
             return View(obj);
 
         }
+
+        //POST Attendee Delete
+        [HttpPost]
+        public IActionResult Delete(int? id, string returnUrl)
+        {
+            var obj = _db.Attendees.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _db.Attendees.Remove(obj);
+            _db.SaveChanges();
+
+
+            return Redirect(Request.Headers["Referer"].ToString());
+        }
+
+            
+
+
     }
 }

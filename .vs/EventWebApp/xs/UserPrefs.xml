@@ -1,14 +1,11 @@
 ﻿<Properties StartupConfiguration="{CA2EE378-672B-4A2E-93BE-A6C35243A62C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Views/Attendee/Create.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Views/Event/Details.cshtml">
     <Files>
-      <File FileName="EventWebApp/Controllers/AttendeeController.cs" Line="52" Column="1" />
+      <File FileName="EventWebApp/Controllers/AttendeeController.cs" Line="73" Column="14" />
       <File FileName="EventWebApp/Controllers/EventController.cs" />
-      <File FileName="EventWebApp/Program.cs" />
-      <File FileName="EventWebApp/Views/Attendee/Create.cshtml" Line="13" Column="15" />
+      <File FileName="EventWebApp/Views/Event/Details.cshtml" Line="50" Column="41" />
+      <File FileName="EventWebApp/Controllers/HomeController.cs" />
       <File FileName="EventWebApp/Views/Home/Index.cshtml" />
-      <File FileName="EventWebApp/wwwroot/css/site.css" />
-      <File FileName="EventWebApp/Models/Event.cs" />
-      <File FileName="EventWebApp/Models/Attendee.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,9 +15,11 @@
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Attendee" expanded="True">
-                  <Node name="Create.cshtml" selected="True" />
+                <Node name="Attendee" expanded="True" />
+                <Node name="Event" expanded="True">
+                  <Node name="Details.cshtml" selected="True" />
                 </Node>
+                <Node name="Home" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
@@ -34,7 +33,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/oskar/Desktop/github/EventWebApp/EventWebApp/Controllers/AttendeeController.cs" relfile="EventWebApp/Controllers/AttendeeController.cs" line="72" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.EventWebApp PreferredExecutionTarget="/Applications/Firefox.app" />

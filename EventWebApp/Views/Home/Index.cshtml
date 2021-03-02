@@ -52,7 +52,7 @@
                         @Html.ActionLink("Lisa osaleja", "Create", "Attendee", new { eventId = obj.Id })
                     </td>
                     <td width="10%">
-                        <form asp-action="Delete" asp-route-Id="@obj.Id">
+                        <form asp-controller="Event" asp-action="Delete" asp-route-Id="@obj.Id">
                             <button type="submit" class="btn btn-danger">
                                 Kustuta
                             </button>

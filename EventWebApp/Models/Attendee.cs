@@ -19,7 +19,6 @@ namespace EventWebApp.Models
 
         public int EventId { get; set; }
 
-        [ForeignKey("EventId")]
         public virtual Event Event { get; set; }
 
         [Required(ErrorMessage = "See on kohustuslik väli!")]
@@ -28,10 +27,9 @@ namespace EventWebApp.Models
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "See on kohustuslik väli!")]
-        public int IdCode { get; set; }
+        public long IdCode { get; set; }
 
-        [Required(ErrorMessage = "See on kohustuslik väli!")]
-        public int ParticipantCount { get; set; }
+        public int? ParticipantCount { get; set; }
 
         public Payment Payment { get; set; }
 

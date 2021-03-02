@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{CA2EE378-672B-4A2E-93BE-A6C35243A62C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Models/Attendee.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Views/Attendee/Create.cshtml">
     <Files>
-      <File FileName="EventWebApp/Controllers/AttendeeController.cs" Line="53" Column="1" />
-      <File FileName="EventWebApp/Controllers/EventController.cs" Line="1" Column="1" />
-      <File FileName="EventWebApp/Migrations/ApplicationDbContextModelSnapshot.cs" Line="14" Column="1" />
-      <File FileName="EventWebApp/Models/Attendee.cs" Line="1" Column="1" />
+      <File FileName="EventWebApp/Controllers/AttendeeController.cs" Line="38" Column="1" />
+      <File FileName="EventWebApp/Controllers/EventController.cs" />
+      <File FileName="EventWebApp/Program.cs" />
+      <File FileName="EventWebApp/Views/Attendee/Create.cshtml" Line="92" Column="10" />
+      <File FileName="EventWebApp/Views/Home/Index.cshtml" />
+      <File FileName="EventWebApp/wwwroot/css/site.css" Line="74" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,15 +14,10 @@
           <Node name="EventWebApp" expanded="True">
             <Node name="EventWebApp" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Migrations" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="ViewModels" expanded="True" />
-                <Node name="Attendee.cs" selected="True" />
-              </Node>
               <Node name="Views" expanded="True">
-                <Node name="Attendee" expanded="True" />
-                <Node name="Event" expanded="True" />
-                <Node name="Home" expanded="True" />
+                <Node name="Attendee" expanded="True">
+                  <Node name="Create.cshtml" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

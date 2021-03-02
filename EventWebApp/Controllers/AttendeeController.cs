@@ -22,19 +22,21 @@ namespace EventWebApp.Controllers
 
         // GET Attendee Create
         [HttpGet]
-        public IActionResult Create(int? id)
+        public IActionResult Create(int? eventId)
         {
-            if (id == null || id == 0)
+            if (eventId == null || eventId == 0)
             {
                 return NotFound();
             }
+
+            var id = eventId;
             var obj = _db.Events.Find(id);
             if (obj == null)
             {
                 return NotFound();
             }
 
-            ViewData["EventIdFromUrl"] = id;
+            ViewData["EventId"] = eventId;
 
             return View();
 
@@ -43,7 +45,7 @@ namespace EventWebApp.Controllers
         //POST Attendee Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(int? id, Attendee obj)
+        public IActionResult Create(int? eventId, Attendee obj)
         {
 
 
@@ -54,7 +56,7 @@ namespace EventWebApp.Controllers
                 return Redirect("~/");
             }
 
-            ViewData["EventIdFromUrl"] = id;
+            ViewData["EventId"] = eventId;
 
             return View(obj);
 

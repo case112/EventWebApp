@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210228110038_Attendee")]
-    partial class Attendee
+    [Migration("20210302054327_MakeChangesInAttendee")]
+    partial class MakeChangesInAttendee
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace EventWebApp.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdCode")
+                    b.Property<long>("IdCode")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LastName")
@@ -41,7 +41,7 @@ namespace EventWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ParticipantCount")
+                    b.Property<int?>("ParticipantCount")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Payment")

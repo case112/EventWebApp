@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EventWebApp.Migrations
 {
-    public partial class Attendee : Migration
+    public partial class MakeChangesInAttendee : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,8 +32,8 @@ namespace EventWebApp.Migrations
                     EventId = table.Column<int>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
-                    IdCode = table.Column<int>(type: "INTEGER", nullable: false),
-                    ParticipantCount = table.Column<int>(type: "INTEGER", nullable: false),
+                    IdCode = table.Column<long>(type: "INTEGER", nullable: false),
+                    ParticipantCount = table.Column<int>(type: "INTEGER", nullable: true),
                     Payment = table.Column<int>(type: "INTEGER", nullable: false),
                     Details = table.Column<string>(type: "TEXT", maxLength: 5000, nullable: true)
                 },

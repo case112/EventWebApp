@@ -48,11 +48,8 @@
                     <td width="20%">@obj.Location</td>
                     <td width="20%">@obj.Details</td>
                     <td width="10%">
-                        <form asp-controller="Attendee" asp-action="Create" asp-route-Id="@obj.Id">
-                            <button type="submit" class="btn btn-success">
-                                Lisa osaleja
-                            </button>
-                        </form>
+                        
+                        @Html.ActionLink("Lisa osaleja", "Create", "Attendee", new { eventId = obj.Id })
                     </td>
                     <td width="10%">
                         <form asp-action="Delete" asp-route-Id="@obj.Id">

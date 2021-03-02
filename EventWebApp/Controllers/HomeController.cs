@@ -20,7 +20,7 @@ namespace EventWebApp.Controllers
             _db = db;
         }
 
-        // GET Index
+        // GET Index with list of Events
         public IActionResult Index()
         {
             IEnumerable<Event> objList = _db.Events;

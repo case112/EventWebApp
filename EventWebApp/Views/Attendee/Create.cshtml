@@ -1,65 +1,77 @@
 ﻿@model EventWebApp.Models.Attendee
 
-<form method="post" asp-action="Create">
+    
     <div class="border p-5">
         <div class="form-group row">
             <h2 class="text-black-50 pl-3">Osaleja lisamine</h2>
         </div>
 
+
+        <div class="form-row">
+            Füüsiline isik:   @Html.RadioButton("AttendeeType", "true", new { onclick = "showHide(this.value);", @checked = "checked" })
+        </div>
+        <div class="form-row">
+            Juriidiline isik: @Html.RadioButton("AttendeeType", "false", new { onclick = "showHide(this.value);" })
+        </div>
+
+
         <div class="container">
-        
-
-            <input asp-for="EventId" value="@ViewData["EventIdFromUrl"]" hidden />
-
-            
-            <div class="form-row">
-                <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-row">
-                <label asp-for="LastName"></label>
-                <input asp-for="LastName" class="form-control" />
-            </div>
-            <div class="form-row">
-                <label asp-for="IdCode"></label>
-                <input asp-for="IdCode" class="form-control" />
-                <span asp-validation-for="IdCode" class="text-danger"></span>
-            </div>
-            <div class="form-row">
-                <label asp-for="Payment"></label>
-                <div>
+            <form method="post" asp-action="Create">
+                <input asp-for="EventId" value="@ViewData["EventId"]" hidden />
+                <div class="form-row">
+                    <label id="first-name">Eesnimi</label>
+                    <label id="business-name">Juriidiline nimi</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div id="last-name" class="form-row">
+                    <label asp-for="LastName">Perenimi</label>
+                    <input asp-for="LastName" class="form-control" />
+                </div>
+                <div class="form-row">
+                    <label id="id-code">Isikukood</label>
+                    <label id="business-code">Registrikood</label>
+                    <input asp-for="IdCode" class="form-control" />
+                    <span asp-validation-for="IdCode" class="text-danger"></span>
+                </div>
+                <div id="participant-count" class="form-row">
+                    <label asp-for="ParticipantCount">Osavõtjate arv</label>
+                    <input asp-for="ParticipantCount" class="form-control" />
+                    <span asp-validation-for="ParticipantCount" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <label asp-for="Payment">Maksmisviis</label>
+                </div>
+                <div class="form-row">
                     <select asp-for="Payment" asp-items="Html.GetEnumSelectList(typeof (Payment))"></select>
                 </div>
-            </div>
-            <div class="form-row">
-                <label asp-for="ParticipantCount"></label>
-                <input asp-for="ParticipantCount" class="form-control" />
-                <span asp-validation-for="ParticipantCount" class="text-danger"></span>
-            </div>
 
-            <div class="form-row">
-                <label asp-for="Details"></label>
-                <input asp-for="Details" class="form-control" />
-                <span asp-validation-for="Details" class="text-danger"></span>
-            </div>
-
-
-        </div>
-        <div class="form-group row">
-            <div>
-                <div class="col">
-                    <input type="submit" class="btn btn-info" value="Salvesta" />
+                <div class="form-row">
+                    <label asp-for="Details">Lisainfo</label>
+                    <input asp-for="Details" class="form-control" />
+                    <span asp-validation-for="Details" class="text-danger"></span>
                 </div>
-                <div class="col">
-                    <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Katkesta</a>
+
+                <div class="form-group row">
+                    <div>
+                        <div class="col">
+                            <input type="submit" class="btn btn-info" value="Salvesta" />
+                        </div>
+                        <div class="col">
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Katkesta</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+            </form>
         </div>
 
+        
+
+
+                
     </div>
 
-</form>
 
 
 @section Scripts{
@@ -67,4 +79,35 @@
         <partial name="_ValidationScriptsPartial" />
         <partial name="_DateTimePicker" />
     }
+
+    <script>
+        function showHide(state) {
+            var firstName = document.getElementById("first-name");
+            var lastName = document.getElementById("last-name");
+            var businessName = document.getElementById("business-name");
+            var idCode = document.getElementById("id-code");
+            var businessCode = document.getElementById("business-code");
+            var participantCount = document.getElementById("participant-count");
+
+
+            if (state == "true") {
+                firstName.style.display = "block";
+                lastName.style.display = "block";
+                businessName.style.display = "none";
+                idCode.style.display = "block";
+                businessCode.style.display = "none";
+                participantCount.style.display = "none";
+            } else {
+                firstName.style.display = "none";
+                lastName.style.display = "none";
+                businessName.style.display = "block";
+                idCode.style.display = "none";
+                businessCode.style.display = "block";
+                participantCount.style.display = "block";
+            }
+        }
+    </script>
+
+    
+
 }

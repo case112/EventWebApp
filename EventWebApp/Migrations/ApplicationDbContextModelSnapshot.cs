@@ -29,7 +29,7 @@ namespace EventWebApp.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdCode")
+                    b.Property<long>("IdCode")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LastName")
@@ -39,7 +39,7 @@ namespace EventWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ParticipantCount")
+                    b.Property<int?>("ParticipantCount")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Payment")

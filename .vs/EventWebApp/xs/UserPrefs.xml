@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{CA2EE378-672B-4A2E-93BE-A6C35243A62C}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Views/Attendee/Create.cshtml">
     <Files>
-      <File FileName="EventWebApp/Controllers/AttendeeController.cs" Line="38" Column="1" />
+      <File FileName="EventWebApp/Controllers/AttendeeController.cs" Line="52" Column="1" />
       <File FileName="EventWebApp/Controllers/EventController.cs" />
       <File FileName="EventWebApp/Program.cs" />
-      <File FileName="EventWebApp/Views/Attendee/Create.cshtml" Line="92" Column="10" />
+      <File FileName="EventWebApp/Views/Attendee/Create.cshtml" Line="13" Column="15" />
       <File FileName="EventWebApp/Views/Home/Index.cshtml" />
-      <File FileName="EventWebApp/wwwroot/css/site.css" Line="74" Column="19" />
+      <File FileName="EventWebApp/wwwroot/css/site.css" />
+      <File FileName="EventWebApp/Models/Event.cs" />
+      <File FileName="EventWebApp/Models/Attendee.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,10 +16,14 @@
           <Node name="EventWebApp" expanded="True">
             <Node name="EventWebApp" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Attendee" expanded="True">
                   <Node name="Create.cshtml" selected="True" />
                 </Node>
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
               </Node>
             </Node>
           </Node>

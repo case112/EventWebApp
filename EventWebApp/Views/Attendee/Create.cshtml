@@ -8,15 +8,17 @@
 
 
         <div class="form-row">
-            Füüsiline isik:   @Html.RadioButton("AttendeeType", "true", new { onclick = "showHide(this.value);", @checked = "checked" })
+            Füüsiline isik:   @Html.RadioButton("AttendeeType", "true",
+                             new { @id = "person-radio", onclick = "showHide();", @checked = "checked" })
         </div>
         <div class="form-row">
-            Juriidiline isik: @Html.RadioButton("AttendeeType", "false", new { onclick = "showHide(this.value);" })
+            Juriidiline isik: @Html.RadioButton("AttendeeType", "false",
+                             new { @id = "business-radio", onclick = "showHide();" })
         </div>
 
 
         <div class="container">
-            <form method="post" asp-action="Create">
+            <form name="createAttendee" method="post" asp-action="Create" onsubmit="return ((validateParticipant() & validateLastName()) == 1)">
                 <input asp-for="EventId" value="@ViewData["EventId"]" hidden />
                 <div class="form-row">
                     <label id="first-name">Eesnimi</label>
@@ -27,6 +29,7 @@
                 <div id="last-name" class="form-row">
                     <label asp-for="LastName">Perenimi</label>
                     <input asp-for="LastName" class="form-control" />
+                    <span id="last-name-span" class="text-danger"></span>
                 </div>
                 <div class="form-row">
                     <label id="id-code">Isikukood</label>
@@ -37,13 +40,14 @@
                 <div id="participant-count" class="form-row">
                     <label asp-for="ParticipantCount">Osavõtjate arv</label>
                     <input asp-for="ParticipantCount" class="form-control" />
-                    <span asp-validation-for="ParticipantCount" class="text-danger"></span>
+                    <span id="participant-count-span" class="text-danger"></span>
                 </div>
                 <div class="form-row">
                     <label asp-for="Payment">Maksmisviis</label>
                 </div>
                 <div class="form-row">
                     <select asp-for="Payment" asp-items="Html.GetEnumSelectList(typeof (Payment))"></select>
+                    <span asp-validation-for="Payment" class="text-danger"></span>
                 </div>
 
                 <div class="form-row">
@@ -77,11 +81,10 @@
 @section Scripts{
     @{
         <partial name="_ValidationScriptsPartial" />
-        <partial name="_DateTimePicker" />
     }
 
     <script>
-        function showHide(state) {
+        function showHide() {
             var firstName = document.getElementById("first-name");
             var lastName = document.getElementById("last-name");
             var businessName = document.getElementById("business-name");
@@ -90,7 +93,7 @@
             var participantCount = document.getElementById("participant-count");
 
 
-            if (state == "true") {
+            if (document.getElementById("person-radio").checked) {
                 firstName.style.display = "block";
                 lastName.style.display = "block";
                 businessName.style.display = "none";
@@ -106,7 +109,30 @@
                 participantCount.style.display = "block";
             }
         }
+
+        function validateParticipant() {
+            var x = document.forms["createAttendee"]["ParticipantCount"].value;
+            if (x < 1 && document.getElementById("business-radio").checked) {
+                $("#participant-count-span").text("Sisesta külastajate arv.");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function validateLastName() {
+            var x = document.forms["createAttendee"]["LastName"].value;
+            if (x == "" && document.getElementById("person-radio").checked) {
+                $("#last-name-span").text("See on kohustuslik väli!");
+                return false;
+            } else {
+                return true;
+            }
+        } 
+
     </script>
+
+    
 
     
 

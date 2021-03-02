@@ -17,12 +17,9 @@
         </div>
 
 
-
-
         <div class="container">
             <form name="createAttendee" method="post" asp-action="Create" onsubmit="return ((validateParticipant() & validateLastName()) == 1)">
                 <input asp-for="EventId" value="@ViewData["EventId"]" hidden />
-                <input asp-for="IsBusiness" id="is-business" hidden />
                 <div class="form-row">
                     <label id="first-name">Eesnimi</label>
                     <label id="business-name">Juriidiline nimi</label>
@@ -103,7 +100,6 @@
                 idCode.style.display = "block";
                 businessCode.style.display = "none";
                 participantCount.style.display = "none";
-                document.getElementById("is-business").checked = false;
             } else {
                 firstName.style.display = "none";
                 lastName.style.display = "none";
@@ -111,7 +107,6 @@
                 idCode.style.display = "none";
                 businessCode.style.display = "block";
                 participantCount.style.display = "block";
-                document.getElementById("is-business").checked = true;
             }
         }
 

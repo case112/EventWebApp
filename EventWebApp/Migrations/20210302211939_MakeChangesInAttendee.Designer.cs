@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210302063847_MakeChangesInAttendee")]
+    [Migration("20210302211939_MakeChangesInAttendee")]
     partial class MakeChangesInAttendee
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace EventWebApp.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<long>("IdCode")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsBusiness")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LastName")

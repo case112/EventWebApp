@@ -22,6 +22,9 @@ namespace EventWebApp.Models
 
         public virtual Event Event { get; set; }
 
+        [Required]
+        public bool IsBusiness { get; set; } = false;
+
         [Required(ErrorMessage = "See on kohustuslik väli!")]
         public string Name { get; set; }
 

@@ -30,6 +30,7 @@ namespace EventWebApp.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     EventId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IsBusiness = table.Column<bool>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
                     IdCode = table.Column<long>(type: "INTEGER", nullable: false),

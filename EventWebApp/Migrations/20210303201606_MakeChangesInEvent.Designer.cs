@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210302211939_MakeChangesInAttendee")]
-    partial class MakeChangesInAttendee
+    [Migration("20210303201606_MakeChangesInEvent")]
+    partial class MakeChangesInEvent
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

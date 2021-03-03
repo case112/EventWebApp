@@ -37,14 +37,13 @@
                 {
                 <tr>
 
-                    <td width="35%">@attendee.Name @attendee.LastName</td>
-                    <td width="35%">@attendee.IdCode</td>
-                    <td width="15%">
-                        <div class="col">
-                            <a asp-controller="Attendee" asp-action="Update" asp-route-Id="@attendee.Id" class="btn btn-primary">Muuda</a>
-                        </div>
-                    </td>
-                    <td width="15%">
+                    <td width="40%">
+                        <a asp-controller="Attendee" asp-action="Update" asp-route-Id="@attendee.Id">
+                            @attendee.Name @attendee.LastName
+                        </a>
+                   </td>
+                    <td width="40%">@attendee.IdCode</td>
+                    <td width="20%">
                         <form asp-controller="Attendee" asp-action="Delete" asp-route-Id="@attendee.Id">
                             <button type="submit" class="btn btn-danger">
                                 Kustuta
@@ -68,19 +67,9 @@
     <div class="form-group row">
         <div>
             <div class="col">
-                <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Tagasi avalehele</a>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Tagasi avalehele</a>
             </div>
         </div>
     </div>
 
 </div>
-
-
-
-
-@section Scripts{
-    @{
-        <partial name="_ValidationScriptsPartial" />
-
-    }
-}

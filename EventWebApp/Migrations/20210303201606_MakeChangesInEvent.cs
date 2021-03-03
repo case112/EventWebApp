@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EventWebApp.Migrations
 {
-    public partial class MakeChangesInAttendee : Migration
+    public partial class MakeChangesInEvent : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

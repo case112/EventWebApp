@@ -15,13 +15,10 @@
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-row">
+
                     <label asp-for="StartDate" class="control-label"></label>
-                    <div class='input-group date' id='datepicker'>
-                        <input asp-for="StartDate" type="text" class="form-control" value="@DateTime.Now.ToString("MM/dd/yyyy HH:mm")" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
+                    @Html.TextBoxFor(m => m.StartDate, "{0:dd-MM-yyyy}", new { @class = "form-control", id = "datepicker" })
+                    
                     <span asp-validation-for="StartDate" class="text-danger"></span>
                 </div>
                     <div class="form-row">
@@ -57,5 +54,9 @@
     @{
         <partial name="_ValidationScriptsPartial" />
         <partial name="_DateTimePicker" />
+
+        <script>
+            
+        </script>
     }
 }

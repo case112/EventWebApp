@@ -156,3 +156,4 @@
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Event/Details.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Attendee/Create.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Attendee/Update.cshtml.g.cs
+/Users/oskar/Desktop/github/EventWebApp/EventWebApp/bin/Debug/net5.0/web.config

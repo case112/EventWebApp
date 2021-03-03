@@ -1,28 +1,21 @@
 ﻿@model EventWebApp.Models.Attendee
 
-    
-    <div class="border p-5">
-        <div class="form-group row">
-            <h2 class="text-black-50 pl-3">Osaleja lisamine</h2>
-        </div>
 
+<div class="border p-5">
+    <div class="form-group row">
+        <h2 class="text-black-50 pl-3">Osaleja Muutmine</h2>
+    </div>
 
-        <div class="form-row">
-            Füüsiline isik:   @Html.RadioButton("AttendeeType", "true",
-                             new { @id = "person-radio", onclick = "showHide();", @checked = "checked" })
-        </div>
-        <div class="form-row">
-            Juriidiline isik: @Html.RadioButton("AttendeeType", "false",
-                             new { @id = "business-radio", onclick = "showHide();" })
-        </div>
-
+    @if (@Model.IsBusiness == false)
+    {
 
         <div class="container">
-            <form name="createAttendee" method="post" asp-action="Create" onsubmit="return ((validateParticipant() & validateLastName()) == 1)">
-                <input asp-for="EventId" value="@ViewData["EventId"]" hidden />
+            <form id="edit-person" method="post" asp-action="Update">
+                <input asp-for="EventId" hidden />
+                <input asp-for="IsBusiness" hidden />
+                <input id="participant-count-edit" asp-for="ParticipantCount" hidden />
                 <div class="form-row">
                     <label id="first-name">Eesnimi</label>
-                    <label id="business-name">Juriidiline nimi</label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
@@ -33,14 +26,8 @@
                 </div>
                 <div class="form-row">
                     <label id="id-code">Isikukood</label>
-                    <label id="business-code">Registrikood</label>
                     <input asp-for="IdCode" class="form-control" />
                     <span asp-validation-for="IdCode" class="text-danger"></span>
-                </div>
-                <div id="participant-count" class="form-row">
-                    <label asp-for="ParticipantCount">Osavõtjate arv</label>
-                    <input asp-for="ParticipantCount" class="form-control" />
-                    <span id="participant-count-span" class="text-danger"></span>
                 </div>
                 <div class="form-row">
                     <label asp-for="Payment">Maksmisviis</label>
@@ -53,28 +40,81 @@
                 <div class="form-row">
                     <label asp-for="Details">Lisainfo</label>
                     <input asp-for="Details" class="form-control" />
+                    <span id="person-details" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <div class="row">
+                            <input type="submit" class="btn btn-info" value="Salvesta" />
+                        </div>
+                        <div class="row">
+                            <a asp-controller="Event" asp-action="Details" asp-route-Id="@Model.EventId" class="btn btn-danger">Tagasi</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    }
+    else if (@Model.IsBusiness == true)
+    {
+        <div class="container">
+            <form id="edit-business" method="post" asp-action="Update">
+                <input asp-for="EventId" hidden />
+                <input asp-for="IsBusiness" hidden />
+                <input asp-for="LastName" hidden />
+                <div class="form-row">
+                    <label asp-for="Name">Juriidiline nimi</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <label asp-for="IdCode">Registrikood</label>
+                    <input asp-for="IdCode" class="form-control" />
+                    <span asp-validation-for="IdCode" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <label asp-for="ParticipantCount">Osavõtjate arv</label>
+                    <input asp-for="ParticipantCount" class="form-control" />
+                    <span id="participant-count-span" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <label asp-for="Payment">Maksmisviis</label>
+                </div>
+                <div class="form-row">
+                    <select asp-for="Payment" asp-items="Html.GetEnumSelectList(typeof (Payment))"></select>
+                    <span asp-validation-for="Payment" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <label asp-for="Details">Lisainfo</label>
+                    <input asp-for="Details" class="form-control" />
                     <span asp-validation-for="Details" class="text-danger"></span>
                 </div>
 
                 <div class="form-group row">
                     <div>
-                        <div class="col">
+                        <div class="row">
                             <input type="submit" class="btn btn-info" value="Salvesta" />
                         </div>
-                        <div class="col">
-                            <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Katkesta</a>
+                        <div class="row">
+                            <a asp-controller="Event" asp-action="Details" asp-route-Id="@Model.EventId" class="btn btn-danger">Tagasi</a>
                         </div>
                     </div>
                 </div>
-
             </form>
         </div>
+    }
+    else
+    {
+        <p>Esines probleem</p>
+        <div class="row">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Tagasi avalehele</a>
+        </div>
+    }
 
-        
 
-
-                
-    </div>
+</div>
 
 
 
@@ -84,56 +124,43 @@
     }
 
     <script>
-        function showHide() {
-            var firstName = document.getElementById("first-name");
-            var lastName = document.getElementById("last-name");
-            var businessName = document.getElementById("business-name");
-            var idCode = document.getElementById("id-code");
-            var businessCode = document.getElementById("business-code");
-            var participantCount = document.getElementById("participant-count");
-
-
-            if (document.getElementById("person-radio").checked) {
-                firstName.style.display = "block";
-                lastName.style.display = "block";
-                businessName.style.display = "none";
-                idCode.style.display = "block";
-                businessCode.style.display = "none";
-                participantCount.style.display = "none";
-            } else {
-                firstName.style.display = "none";
-                lastName.style.display = "none";
-                businessName.style.display = "block";
-                idCode.style.display = "none";
-                businessCode.style.display = "block";
-                participantCount.style.display = "block";
-            }
-        }
 
         function validateParticipant() {
-            var x = document.forms["createAttendee"]["ParticipantCount"].value;
-            if (x < 1 && document.getElementById("business-radio").checked) {
+            var x = document.forms["edit-business"]["ParticipantCount"].value;
+            if (x < 1 && document.getElementById("ParticipantCount")) {
                 $("#participant-count-span").text("Sisesta külastajate arv.");
-                return false;
-            } else {
-                return true;
+                return event.preventDefault();
             }
         }
 
         function validateLastName() {
-            var x = document.forms["createAttendee"]["LastName"].value;
-            if (x == "" && document.getElementById("person-radio").checked) {
+            var x = document.forms["edit-person"]["LastName"].value;
+            if (x == "" && document.getElementById("LastName")) {
                 $("#last-name-span").text("See on kohustuslik väli!");
-                return false;
-            } else {
-                return true;
+                return event.preventDefault();
             }
-        } 
+        }
+
+        function maxStringLength() {
+            stringLength = document.forms["edit-person"]["Details"].value;
+            if (stringLength.length > 1500) {
+                $("#person-details").text("Maksimaalne pikkus on 1500 tähemärki.");
+                return event.preventDefault();
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", function (event) {
+            if (document.getElementById('edit-person')) {
+                document.getElementById('edit-person').addEventListener("submit", () => {
+                    ((maxStringLength() & validateLastName()) == 1)
+                }); 
+            }
+            if (document.getElementById('edit-business')) {
+                document.getElementById('edit-business').addEventListener("submit", validateParticipant);
+            }
+        });
 
     </script>
 
-    
 
-    
-
-}
+    }

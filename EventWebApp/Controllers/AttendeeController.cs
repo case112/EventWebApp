@@ -94,6 +94,7 @@ namespace EventWebApp.Controllers
             {
                 return NotFound();
             }
+            
             return View(obj);
 
         }
@@ -108,9 +109,10 @@ namespace EventWebApp.Controllers
             {
                 _db.Attendees.Update(obj);
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect(Request.Headers["Referer"].ToString());
             }
-            return View(obj);
+
+            return Redirect("~/");
 
         }
 

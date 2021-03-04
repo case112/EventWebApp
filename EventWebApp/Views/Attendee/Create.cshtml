@@ -1,13 +1,18 @@
 ﻿@model EventWebApp.Models.Attendee
 
-    
+@{
+    ViewData["Title"] = "Osaleja lisamine";
+}
+
+<partial name="_Header" />
+
 <div class="border p-5">
     <div class="form-group row">
-        <h2 class="text-black-50 pl-3">Osaleja lisamine</h2>
+        <h2 class="text-black-50 pl-3">@ViewData["Title"]</h2>
     </div>
 
 
-    
+
 
     <div class="form-row">
         <input name="attendee-type" type="radio" id="person-radio" checked>
@@ -86,9 +91,7 @@
         <partial name="_ValidationScriptsPartial" />
     }
 
-    <script>
-        
-        function showHide() {
+    <script>function showHide() {
             var firstName = document.getElementById("first-name");
             var lastName = document.getElementById("last-name");
             var businessName = document.getElementById("business-name");
@@ -130,7 +133,7 @@
             if (x < 1 && document.getElementById("business-radio").checked) {
                 $("#participant-count-span").text("Sisesta külastajate arv.");
                 return event.preventDefault();
-            } 
+            }
         }
 
         function validateLastName() {
@@ -138,7 +141,7 @@
             if (x == "" && document.getElementById("person-radio").checked) {
                 $("#last-name-span").text("See on kohustuslik väli!");
                 return event.preventDefault();
-            } 
+            }
         }
 
         function maxStringLength() {
@@ -159,12 +162,11 @@
             document.getElementById('person-radio').addEventListener("change", showHide);
             document.getElementById('create-attendee').addEventListener("submit", () => {
                 ((validateParticipant() & validateLastName() & maxStringLength()) == 1)
-            }); 
-        });
-    </script>
+            });
+        });</script>
 
-    
 
-    
+
+
 
 }

@@ -1,74 +1,5 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
 
 #participant-count {
     display: none;
@@ -80,4 +11,206 @@ body {
 
 #business-code {
     display: none;
+}
+
+
+html, body {
+    background-color: #dde6ec;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.nav {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.navbar {
+    padding: 0rem 1rem;
+}
+
+
+
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 1.8rem;
+    color: black;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+    color: white;
+}
+
+.active {
+    background-color: rgb(0, 90, 161);
+    color: white;
+}
+
+.logo {
+    margin-right: 100px;
+}
+
+.header-1 {
+    background-color: rgb(0, 90, 161);
+    color: white;
+    border-radius: 0;
+}
+
+.header-2 {
+    border-radius: 0;
+    background-image: url("../images/pilt.jpg");
+    background-position: inherit;
+}
+
+.header-3 {
+    height: 82px;
+}
+
+.image-col {
+    background-image: url("../images/libled.jpg");
+}
+
+.header-col {
+    background-color: rgb(0, 90, 161);
+    color: white;
+    text-align: center;
+    font-weight: 200;
+}
+
+    .header-col h2 {
+        padding: 20px;
+        padding-left: 3px;
+        padding-right: 3px;
+        font-weight: 200;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+.jumbotron {
+    margin-bottom: 15px;
+}
+
+.content {
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 2rem;
+}
+
+.card {
+    border-radius: 0;
+    display: inline-block;
+    padding: 0;
+    border: 0;
+}
+
+.card-header {
+    background-color: rgb(0, 90, 161);
+    border-radius: 0;
+    color: white;
+    text-align: center;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-header:first-child {
+    border-radius: 0;
+}
+
+.card-1 {
+    margin-right: 7px;
+    border-radius: 0;
+}
+
+.card-2 {
+    margin-left: 7px;
+}
+
+main {
+    margin-bottom: 15px;
+}
+
+.table {
+    color: rgb(138, 138, 138);
+    font-size: 12px;
+}
+
+.table td, .table th {
+        border: 0;
+}
+
+.remove-img {
+    width: 12px;
+    margin-bottom: 4px;
+}
+
+.add-img {
+    width: 12px;
+    margin-bottom: 4px;
+}
+
+dd {
+    line-height: 20px;
+    color: white;
+    font-weight: 200;
+}
+
+footer {
+    padding: 30px;
+    background-color: rgb(55, 55, 55);
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+    footer h2 {
+        color: white;
+    }
+
+.hide-footer-object {
+    visibility: hidden;
+}
+
+.row {
+    margin: 0;
+}
+
+.add-form-display {
+    width: 70%;
+    margin: auto;
+}
+
+.button-display {
+    margin-top: 20px;
+}
+
+.validation-msg {
+    text-align: right;
+}
+
+.form-inline label {
+    display: block;
+}
+
+.add-event-h {
+    color: #45a1ff;
+}
+
+.delete-obj {
+    border: none;
+    background: none;
+}
+
+.event-name-link {
+    text-decoration: none;
+    color: rgb(138, 138, 138);
+    font-weight: 600;
+}
+
+.participant-link {
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(138, 138, 138);
 }

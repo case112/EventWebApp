@@ -1,5 +1,8 @@
 ﻿@model EventWebApp.Models.Attendee
 
+@{
+    ViewData["Title"] = "Muuda osalejat";
+}
 
 <div class="border p-5">
     <div class="form-group row">
@@ -123,9 +126,7 @@
         <partial name="_ValidationScriptsPartial" />
     }
 
-    <script>
-
-        function validateParticipant() {
+    <script>function validateParticipant() {
             var x = document.forms["edit-business"]["ParticipantCount"].value;
             if (x < 1 && document.getElementById("ParticipantCount")) {
                 $("#participant-count-span").text("Sisesta külastajate arv.");
@@ -153,14 +154,12 @@
             if (document.getElementById('edit-person')) {
                 document.getElementById('edit-person').addEventListener("submit", () => {
                     ((maxStringLength() & validateLastName()) == 1)
-                }); 
+                });
             }
             if (document.getElementById('edit-business')) {
                 document.getElementById('edit-business').addEventListener("submit", validateParticipant);
             }
-        });
-
-    </script>
+        });</script>
 
 
-    }
+}

@@ -1,73 +1,103 @@
 ﻿@model IEnumerable<EventWebApp.Models.Event>
 
-<div class="container p-3">
-    <div class="row pt-4">
-        <div class="col-6">
-            <h2 class="text-primary">Ürituste nimekiri</h2>
-        </div>
-        <div class="col-6 text-right">
-            <a asp-controller="Event" asp-action="Create" class="btn btn-primary">Loo uus üritus</a>
+@{
+    ViewData["Title"] = "Avaleht";
+}
+
+
+<div class="row">
+    <div class="jumbotron col-sm-6 header-1">
+        <div class="container">
+            <p class="lead">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </div>
-    <br />
+    <div class="jumbotron col-sm-6 header-2">
+        <div class="container">
+        </div>
+    </div>
+</div>
 
-    @if (Model.Count() > 0)
-    {
-        <table class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>
-                        Ürituse nimi
-                    </th>
-                    <th>
-                        Aeg
-                    </th>
-                    <th>
-                        Koht
-                    </th>
-                    <th>
-                        Info
-                    </th>
-                    <th>
-                        Tegevus1
-                    </th>
-                    <th>
-                        Tegevus2
-                    </th>
+<div class="row event-row">
+    <div class="container-fluid"></div>
+    <div class="card col card-1">
+        <div class="card-header">
+            Tulevased üritused
+        </div>
+        <div class="card-body">
+            @{ int rowNo1 = 0; }
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-sm">
+                    <tbody>
+                        @foreach (var obj in Model)
+                        {
+                        <tr>
+                            <td scope="row">@(rowNo1 += 1).</td>
+                            <td>
+                                <div class="row">
+                                    <a class="event-name-link" asp-controller="Attendee" asp-action="Create" asp-route-Id="@obj.Id">
+                                        @obj.Name<img class="add-img" src="~/images/plus.svg" />
+                                    </a>
+                                </div>
+                            </td>
+                            <td>@obj.StartDate</td>
+                            <td>
+                                <div class="row">
+                                    <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
+                                        OSAVÕTJAD
+                                    </a>
+                                    <form asp-controller="Event" asp-action="Delete" asp-route-Id="@obj.Id">
+                                        <button type="submit" class="delete-obj">
+                                            <img class="remove-img" src="~/images/remove.svg" />
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var obj in Model)
-                {
-                <tr>
-                    <td width="20%">
-                        <a asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">@obj.Name</a>
-                    </td>
-                    <td width="20%">@obj.StartDate</td>
-                    <td width="20%">@obj.Location</td>
-                    <td width="20%">@obj.Details</td>
-                    <td width="10%">
-                        
-                        @Html.ActionLink("Lisa osaleja", "Create", "Attendee", new { eventId = obj.Id })
-                    </td>
-                    <td width="10%">
-                        <form asp-controller="Event" asp-action="Delete" asp-route-Id="@obj.Id">
-                            <button type="submit" class="btn btn-danger">
-                                Kustuta
-                            </button>
-                        </form>
-                    </td>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Üritused puuduvad</p>
+            }
+        </div>
+    </div>
+    <div class="card col card-2">
+        <div class="card-header">
+            Toimunud üritused
+        </div>
+        <div class="card-body">
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-sm">
+                    <tbody>
+                        @{ int rowNo2 = 0; }
+                        @foreach (var obj in Model)
+                        {
+                            <tr>
+                                <td scope="row">@(rowNo2 += 1).</td>
+                                <td>@obj.Name</td>
+                                <td>@obj.StartDate</td>
+                                <td>
+                                    <div class="row">
+                                        <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
+                                            OSAVÕTJAD
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
 
-
-                </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p>Üritused puuduvad</p>
-    }
-
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Üritused puuduvad</p>
+            }
+        </div>
+    </div>
 </div>

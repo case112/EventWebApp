@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,40 +9,76 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EventWebApp</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light nav">
+
+            <a class="navbar-brand logo" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.svg" alt="Logo" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    @Html.ActiveActionLink("AVALEHT", "Index", "Home", null, new { @class = "nav-link" })
+                    @Html.ActiveActionLink("ÜRITUSE LISAMINE", "Create", "Event", null, new { @class = "nav-link" })
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <img src="~/images/symbol.svg" alt="Logo" class="my-2 my-sm-0" />
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - EventWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+        <footer>
+            <div class="container">
+                <div class="row ">
+                    <div class="col">
+                        <dl>
+                            <h2> Curabitur </h2>
+                            <dd>Lorem</dd>
+                            <dd>Nulla</dd>
+                            <dd>Aliquip</dd>
+                            <dd>Dolore</dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl>
+                            <h2> Fusce </h2>
+                            <dd>Commodo</dd>
+                            <dd>Aliqua</dd>
+                            <dd>Tempor</dd>
+                            <dd>Labore</dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl>
+                            <h2> Kontakt </h2>
+                            <dd><b>Peakontor: Tallinnas</b></dd>
+                            <dd>Vaike-Ameerika 1, 22213 Tallinn</dd>
+                            <dd>Telefon: 643453</dd>
+                            <dd>Faks: 4354535</dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl>
+                            <h2 class="hide-footer-object"> Heading</h2>
+                            <dd><b>Harukontor: Vorus</b></dd>
+                            <dd>Oja tn 7, (kulastusaadress)</dd>
+                            <dd>Telefon: 65553</dd>
+                            <dd>Faks: 4324535</dd>
+                        </dl>
+
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

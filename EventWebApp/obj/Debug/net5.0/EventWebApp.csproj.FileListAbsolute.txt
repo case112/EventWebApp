@@ -23,7 +23,6 @@
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/EventWebApp.TagHelpers.output.cache
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/EventWebApp.RazorCoreGenerate.cache
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs
-/Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Home/Privacy.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Shared/Error.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
@@ -157,3 +156,4 @@
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Attendee/Create.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Attendee/Update.cshtml.g.cs
 /Users/oskar/Desktop/github/EventWebApp/EventWebApp/bin/Debug/net5.0/web.config
+/Users/oskar/Desktop/github/EventWebApp/EventWebApp/obj/Debug/net5.0/Razor/Views/Shared/_Header.cshtml.g.cs

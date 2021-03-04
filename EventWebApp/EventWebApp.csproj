@@ -31,6 +31,7 @@
     <Folder Include="CustomValidation\" />
     <Folder Include="Views\Attendee\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\js\moment %28copy%29.min.js" />

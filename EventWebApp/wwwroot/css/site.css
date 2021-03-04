@@ -214,3 +214,13 @@ footer {
     font-weight: 700;
     color: rgb(138, 138, 138);
 }
+
+input[type=radio] {
+    height: 18px;
+}
+
+.form-inline label {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}

@@ -1,30 +1,25 @@
 ﻿<Properties StartupConfiguration="{CA2EE378-672B-4A2E-93BE-A6C35243A62C}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Views/Attendee/Create.cshtml">
     <Files>
-      <File FileName="EventWebApp/Views/Event/Create.cshtml" Line="29" Column="136" />
-      <File FileName="EventWebApp/Views/Home/Index.cshtml" Line="39" Column="74" />
+      <File FileName="EventWebApp/Views/Event/Create.cshtml" Line="50" Column="1" />
+      <File FileName="EventWebApp/Views/Home/Index.cshtml" />
       <File FileName="EventWebApp/Views/Shared/_Layout.cshtml" />
-      <File FileName="EventWebApp/Views/Attendee/Create.cshtml" Line="1" Column="1" />
-      <File FileName="EventWebApp/wwwroot/css/site.css" Line="148" Column="23" />
+      <File FileName="EventWebApp/Views/Attendee/Create.cshtml" Line="29" Column="61" />
+      <File FileName="EventWebApp/wwwroot/css/site.css" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EventWebApp" expanded="True">
             <Node name="EventWebApp" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Attendee" expanded="True">
                   <Node name="Create.cshtml" selected="True" />
                 </Node>
                 <Node name="Event" expanded="True" />
-                <Node name="Home" expanded="True" />
-                <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
-                <Node name="images" expanded="True" />
               </Node>
             </Node>
           </Node>

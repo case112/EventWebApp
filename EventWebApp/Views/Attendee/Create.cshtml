@@ -6,81 +6,90 @@
 
 <partial name="_Header" />
 
-<div class="border p-5">
-    <div class="form-group row">
-        <h2 class="text-black-50 pl-3">@ViewData["Title"]</h2>
-    </div>
+<div class="content">
 
+    <div class="p-5 add-form-display">
+        <div class="form-group row">
+            <h2 class="text-primary-50 pl-3 add-event-h">@ViewData["Title"]</h2>
+        </div>
 
+        <div class="modal-body">
 
-
-    <div class="form-row">
-        <input name="attendee-type" type="radio" id="person-radio" checked>
-        <label>Eraisik</label>
-    </div>
-    <div class="form-row">
-        <input name="attendee-type" type="radio" id="business-radio">
-        <label>Ettevõte</label>
-    </div>
-
-
-    <div class="container">
-        <form name="createAttendee" id="create-attendee" method="post" asp-action="Create">
-            <input asp-for="EventId" value="@ViewData["EventId"]" hidden />
-            <input asp-for="IsBusiness" id="is-business" hidden />
-            <div class="form-row">
-                <label id="first-name">Eesnimi</label>
-                <label id="business-name">Juriidiline nimi</label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+            <div class="form-group form-inline">
+                <label class="col-md-3 form-label">Eraisik</label>
+                <input name="attendee-type" type="radio" id="person-radio" class="form-control col-md-1" checked>
             </div>
-            <div id="last-name" class="form-row">
-                <label asp-for="LastName">Perenimi</label>
-                <input asp-for="LastName" class="form-control" />
-                <span id="last-name-span" class="text-danger"></span>
-            </div>
-            <div class="form-row">
-                <label id="id-code">Isikukood</label>
-                <label id="business-code">Registrikood</label>
-                <input asp-for="IdCode" class="form-control" />
-                <span asp-validation-for="IdCode" class="text-danger"></span>
-            </div>
-            <div id="participant-count" class="form-row">
-                <label asp-for="ParticipantCount">Osavõtjate arv</label>
-                <input asp-for="ParticipantCount" class="form-control" />
-                <span id="participant-count-span" class="text-danger"></span>
-            </div>
-            <div class="form-row">
-                <label asp-for="Payment">Maksmisviis</label>
-            </div>
-            <div class="form-row">
-                <select asp-for="Payment" asp-items="Html.GetEnumSelectList(typeof (Payment))"></select>
-                <span asp-validation-for="Payment" class="text-danger"></span>
+            <div class="form-group form-inline">
+                <label class="col-md-3 form-label">Ettevõte</label>
+                <input name="attendee-type" type="radio" id="business-radio" class="form-control col-md-1">
             </div>
 
-            <div class="form-row">
-                <label asp-for="Details">Lisainfo</label>
-                <input asp-for="Details" class="form-control" />
-                <span id="attendee-details" class="text-danger"></span>
-            </div>
+            <form class="form-horizontal" form name="createAttendee" id="create-attendee" method="post" asp-action="Create">
+                <input asp-for="EventId" value="@ViewData["EventId"]" hidden />
+                <input asp-for="IsBusiness" id="is-business" hidden />
 
-            <div class="form-group row">
-                <div>
-                    <div class="col">
-                        <input type="submit" class="btn btn-info" value="Salvesta" />
+                <div class="form-group form-inline">
+                    <label id="first-name" class="col-md-3 form-label">Eesnimi</label>
+                    <label id="business-name" class="col-md-3 form-label">Juriidiline nimi</label>
+                    <input asp-for="Name" class="form-control col-md-9">
+                </div>
+                <div class="form-group form-inline">
+                    <span asp-validation-for="Name" class="text-danger col validation-msg"></span>
+                </div>
+
+                <div id="last-name" class="form-group form-inline">
+                    <label class="col-md-3">Perenimi</label>
+                    <input asp-for="LastName" class="form-control col-md-9">
+                </div>
+                <div class="form-group form-inline">
+                    <span id="last-name-span" class="text-danger col validation-msg"></span>
+                </div>
+
+                <div class="form-group form-inline">
+                    <label id="id-code" class="col-md-3">Isikukood</label>
+                    <label id="business-code" class="col-md-3">Registrikood</label>
+                    <input asp-for="IdCode" class="form-control col-md-9">
+                </div>
+                <div class="form-group form-inline">
+                    <span asp-validation-for="IdCode" class="text-danger col validation-msg"></span>
+                </div>
+
+                <div id="participant-count" class="form-group form-inline">
+                    <label class="col-md-3" asp-for="ParticipantCount">Osavõtjate arv</label>
+                    <input asp-for="ParticipantCount" class="form-control col-md-9" />
+                </div>
+                <div class="form-group form-inline">
+                    <span asp-validation-for="ParticipantCount" class="text-danger col validation-msg"></span>
+                </div>
+
+                <div class="form-group form-inline">
+                    <label class="col-md-3" asp-for="Payment">Maksmisviis</label>
+                    <select class="form-control col-md-9" asp-for="Payment" asp-items="Html.GetEnumSelectList(typeof (Payment))"></select>
+                </div>
+                <div class="form-group form-inline">
+                    <span asp-validation-for="Payment" class="text-danger col validation-msg"></span>
+                </div>
+
+                <div class="form-group form-inline">
+                    <label class="col-md-3" asp-for="Details"></label>
+                    <textarea asp-for="Details" class="form-control col-md-9"></textarea>
+                </div>
+                <div class="form-group form-inline">
+                    <span id="attendee-details" asp-validation-for="Details" class="text-danger col validation-msg"></span>
+                </div>
+
+                <div class="row button-display">
+                    <div class="col-">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Tagasi</a>
                     </div>
-                    <div class="col">
-                        <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Katkesta</a>
+                    <div class="col-2">
+                        <input type="submit" class="btn btn-primary" value="Salvesta" />
                     </div>
                 </div>
-            </div>
 
-        </form>
+            </form>
+        </div>
     </div>
-
-
-
-
 
 </div>
 
@@ -102,29 +111,31 @@
 
             if (document.getElementById("person-radio").checked) {
                 // manipulate CSS
-                firstName.style.display = "block";
-                lastName.style.display = "block";
+                firstName.style.display = "flex";
+                lastName.style.display = "flex";
                 businessName.style.display = "none";
-                idCode.style.display = "block";
+                idCode.style.display = "flex";
                 businessCode.style.display = "none";
                 participantCount.style.display = "none";
                 // reset form
                 attendeeForm.reset();
                 // set value for IsBusiness
                 document.getElementById("is-business").checked = false;
+                document.getElementById("business-radio").checked = false;
 
             } else {
                 // manipulate CSS
                 firstName.style.display = "none";
                 lastName.style.display = "none";
-                businessName.style.display = "block";
+                businessName.style.display = "flex";
                 idCode.style.display = "none";
-                businessCode.style.display = "block";
-                participantCount.style.display = "block";
+                businessCode.style.display = "flex";
+                participantCount.style.display = "flex";
                 // reset form
                 attendeeForm.reset();
-                // set value for IsBusiness
+                // set value for IsBusiness 
                 document.getElementById("is-business").checked = true;
+                document.getElementById("person-radio").checked = false;
             }
         }
 
@@ -147,10 +158,8 @@
         function maxStringLength() {
             if (document.getElementById("person-radio").checked) {
                 stringLength = document.forms["createAttendee"]["Details"].value;
-                console.log('gg1')
                 if (stringLength.length > 1500) {
                     $("#attendee-details").text("Maksimaalne pikkus on 1500 tähemärki.");
-                    console.log('gg12')
                     return event.preventDefault();
                 }
             }

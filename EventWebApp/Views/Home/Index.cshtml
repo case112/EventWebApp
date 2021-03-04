@@ -35,7 +35,8 @@
                             <td scope="row">@(rowNo1 += 1).</td>
                             <td>
                                 <div class="row">
-                                    <a class="event-name-link" asp-controller="Attendee" asp-action="Create" asp-route-Id="@obj.Id">
+                                     
+                                    <a class="event-name-link" href="@Url.Action("Create", "Attendee", new { eventId = obj.Id })" >
                                         @obj.Name<img class="add-img" src="~/images/plus.svg" />
                                     </a>
                                 </div>

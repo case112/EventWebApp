@@ -1,75 +1,137 @@
 ﻿@model EventWebApp.Models.ViewModels.EventVM
 @{
-    ViewData["Title"] = "Üritus";
+    ViewData["Title"] = "Osavõtjad";
     var id = @ViewData["EventIdFromUrl"];
 }
 
-<div class="border p-5">
-    <div class="row">
-        <h2 class="text-black-50 pl-3">Osavõtjad</h2>
-    </div>
+<partial name="_Header" />
 
-    <div class="container">
+<div class="content">
 
-        @foreach (var obj in Model.Events)
-        {
-            <div>
-                <p>Ürituse nimi: @obj.Name</p>
-            </div>
-
-            <div>
-                <p>Toimumisaeg: @obj.StartDate</p>
-            </div>
-
-            <div>
-                <p>Koht: @obj.Details</p>
-            </div>
-
-        }
-
-        <div>
-            <p>Osavõtjad: </p>
+    <div class="p-5 add-form-display">
+        <div class="form-group row">
+            <h2 class="text-primary-50 pl-3 add-event-h">Ürituse info</h2>
         </div>
 
-        <table>
-            <tbody>
-                @foreach (var attendee in Model.Attendees)
-                {
-                <tr>
 
-                    <td width="40%">
-                        <a asp-controller="Attendee" asp-action="Update" asp-route-Id="@attendee.Id">
-                            @attendee.Name @attendee.LastName
-                        </a>
-                   </td>
-                    <td width="40%">@attendee.IdCode</td>
-                    <td width="20%">
-                        <form asp-controller="Attendee" asp-action="Delete" asp-route-Id="@attendee.Id">
-                            <button type="submit" class="btn btn-danger">
-                                Kustuta
-                            </button>
-                        </form>
-                    </td>
+        <div class="modal-body">
+            @{
+                DateTime modelDate = DateTime.Now;
+                DateTime dateNow = DateTime.Now;
+                int rowNo = 0;
+            }
+            @foreach (var obj in Model.Events)
+            {
+                modelDate = obj.StartDate;
 
 
+                <table class="table table-borderless event-table">
+                    <tbody>
+                        <tr>
+                            <td><p>Ürituse nimi:</p></td>
+                            <td class="col-4">@obj.Name</td>
+                        </tr>
+                        <tr>
+                            <td><p>Toimumisaeg:</p></td>
+                            <td class="col-4">@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                        </tr>
+                        <tr>
+                            <td><p>Koht:</p></td>
+                            <td class="col-4">@obj.Location</td>
+                        </tr>
+                        @if (obj.Details != null)
+                        {
+                            <tr>
+                                <td><p>Lisainfo:</p></td>
+                                <td class="col-4">@obj.Details</td>
+                            </tr>
+                        }
+                        </tbody>
+                </table>
+
+
+            }
+        </div>
+        <div class="form-group row">
+            <h2 class="text-primary-50 pl-3 add-event-h">@ViewData["Title"]</h2>
+        </div>
+        <div class="modal-body">
+
+
+            @if (modelDate < dateNow && Model.Attendees.Count() > 0)
+            {
+                <table class="table table-borderless event-table">
+                    <tbody>
+                        @foreach (var attendee in Model.Attendees)
+                        {
+                            <tr>
+                                <td scope="row">@(rowNo += 1).</td>
+                                <td>
+                                    @attendee.Name @attendee.LastName
+                                </td>
+                                <td>
+                                    @attendee.IdCode
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
 
 
-                </tr>
-                }
-            </tbody>
-        </table>
+            }
+            else if (modelDate > dateNow && Model.Attendees.Count() > 0)
+            {
+                <table class="table table-borderless event-table">
+                    <tbody>
+                        @foreach (var attendee in Model.Attendees)
+                        {
+                            <tr>
+                                <td scope="row">@(rowNo += 1).</td>
+                                <td>
+                                    @attendee.Name @attendee.LastName
+                                </td>
+                                <td>
+                                    @attendee.IdCode
+                                </td>
+                                <td>
+                                    <a class="update-attendee-event" asp-controller="Attendee" asp-action="Update" asp-route-Id="@attendee.Id">
+                                        VAATA
+                                    </a>
+                                </td>
+                                <td>
+                                    <form asp-controller="Attendee" asp-action="Delete" asp-route-Id="@attendee.Id">
+                                        <button type="submit" class="remove-attendee-event">
+                                            KUSTUTA
+                                        </button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
 
+            }
+            else
+            {
+                <br />
+                <p>Osavõtjad puuduvad.</p>
+                <br />
+            }
 
-
-    </div>
-    <div class="form-group row">
-        <div>
-            <div class="col">
-                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Tagasi avalehele</a>
+            <br />
+            <div class="row">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Tagasi avalehele</a>
             </div>
+
+
         </div>
     </div>
 
-</div>
+
+
+    </div>
+
+

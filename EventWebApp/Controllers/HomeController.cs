@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EventWebApp.Models;
 using EventWebApp.Data;
+using EventWebApp.Models.ViewModels;
 
 namespace EventWebApp.Controllers
 {
@@ -24,7 +25,18 @@ namespace EventWebApp.Controllers
         public IActionResult Index()
         {
             IEnumerable<Event> objList = _db.Events;
-            return View(objList);
+
+            var EventPastFutureViewModel = new EventPastFutureVM
+            {
+
+                EventsPast = _db.Events.Where(p => p.StartDate < DateTime.Now).OrderByDescending(p => p.StartDate),
+                EventsFuture = _db.Events.Where(f => f.StartDate > DateTime.Now).OrderBy(p => p.StartDate)
+
+
+            };
+
+
+            return View(EventPastFutureViewModel);
         }
 
 

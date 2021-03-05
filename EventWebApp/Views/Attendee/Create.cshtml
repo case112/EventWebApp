@@ -59,7 +59,7 @@
                     <input asp-for="ParticipantCount" class="form-control col-md-9" />
                 </div>
                 <div class="form-group form-inline">
-                    <span asp-validation-for="ParticipantCount" class="text-danger col validation-msg"></span>
+                    <span id="participant-count-span" class="text-danger col validation-msg"></span>
                 </div>
 
                 <div class="form-group form-inline">
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="form-group form-inline">
-                    <label class="col-md-3" asp-for="Details"></label>
+                    <label class="col-md-3" asp-for="Details">Lisainfo</label>
                     <textarea asp-for="Details" class="form-control col-md-9"></textarea>
                 </div>
                 <div class="form-group form-inline">

@@ -136,18 +136,24 @@ main {
     font-size: 12px;
 }
 
+.index-table-p {
+    color: rgb(138, 138, 138);
+    font-size: 12px;
+    text-align: center;
+}
+
 .table td, .table th {
         border: 0;
 }
 
 .remove-img {
     width: 12px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .add-img {
-    width: 12px;
-    margin-bottom: 4px;
+    width: 14px;
+    margin-top: -8px;
 }
 
 dd {
@@ -168,6 +174,12 @@ footer {
     footer h2 {
         color: white;
     }
+
+.dd-header {
+    font-size: x-large;
+    font-weight: 300;
+    margin-bottom: 1.3rem;
+}
 
 .hide-footer-object {
     visibility: hidden;
@@ -198,10 +210,12 @@ footer {
     color: #45a1ff;
 }
 
-.delete-obj {
+.delete-obj, .add-obj {
     border: none;
     background: none;
+    padding: 0;
 }
+
 
 .event-name-link {
     text-decoration: none;
@@ -223,4 +237,27 @@ input[type=radio] {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+}
+
+.event-table {
+    font-size: medium;
+    color: #343a40;
+}
+
+.event-table p {
+    color: black;
+}
+
+.remove-attendee-event {
+    border: none;
+    background: none;
+    text-decoration: none;
+    color: #343a40;
+    font-weight: 700;
+}
+
+.update-attendee-event {
+    text-decoration: none;
+    color: #343a40;
+    font-weight: 700;
 }

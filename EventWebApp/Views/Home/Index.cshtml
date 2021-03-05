@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "Avaleht";
+    int rowNo1 = 0;
+    int rowNo2 = 0;
+    int noOfAttendees = 0;
+    int n = 0;
 }
 
 
@@ -24,43 +28,58 @@
             Tulevased üritused
         </div>
         <div class="card-body">
-            @{
-                int rowNo1 = 0;
-            }
             @if (Model.EventsFuture.Count() > 0)
             {
                 <table class="table table-sm">
                     <tbody>
                         @foreach (var obj in Model.EventsFuture)
                         {
-                            <tr>
-                                <td scope="row">@(rowNo1 += 1).</td>
-                                <td>
-                                    <div class="row">
-                                        <a class="event-name-link" href="@Url.Action("Create", "Attendee", new { eventId = obj.Id })">
-                                            @obj.Name
-                                        </a>
-                                        <a href="@Url.Action("Create", "Attendee", new { eventId = obj.Id })">
-                                            <div class="add-obj">
-                                                <img class="add-img" src="~/images/plus.svg" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
-                                <td>
-                                    <div class="row">
-                                        <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
-                                            OSAVÕTJAD
-                                        </a>
-                                        <form asp-controller="Event" asp-action="Delete" asp-route-Id="@obj.Id">
-                                            <button type="submit" class="delete-obj">
-                                                <img class="remove-img" src="~/images/remove.svg" />
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td scope="row">@(rowNo1 += 1).</td>
+                            <td>
+                                <div class="row">
+                                    <a class="event-name-link" href="@Url.Action("Create", "Attendee", new { eventId = obj.Id })">
+                                        @obj.Name
+                                    </a>
+                                    <a href="@Url.Action("Create", "Attendee", new { eventId = obj.Id })">
+                                        <div class="add-obj">
+                                            <img class="add-img" src="~/images/plus.svg" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                            @{noOfAttendees = 0;}
+                            @foreach (var att in Model.Attendees.Where(a => a.EventId == obj.Id))
+                            {
+                                @if (@att.ParticipantCount == null)
+                                {
+                                    noOfAttendees += 1;
+                                }
+                                else
+                                {
+
+                                    n = (int)att.ParticipantCount;
+                                    noOfAttendees += n;
+
+                                }
+                            }
+                            <td>
+                                @noOfAttendees
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
+                                        OSAVÕTJAD
+                                    </a>
+                                    <form asp-controller="Event" asp-action="Delete" asp-route-Id="@obj.Id">
+                                        <button type="submit" class="delete-obj">
+                                            <img class="remove-img" src="~/images/remove.svg" />
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
 
                         }
                     </tbody>
@@ -82,21 +101,38 @@
             {
                 <table class="table table-sm">
                     <tbody>
-                        @{ int rowNo2 = 0; }
                         @foreach (var obj in Model.EventsPast)
                         {
-                            <tr>
-                                <td scope="row">@(rowNo2 += 1).</td>
-                                <td>@obj.Name</td>
-                                <td>@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
-                                <td>
-                                    <div class="row">
-                                        <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
-                                            OSAVÕTJAD
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td scope="row">@(rowNo2 += 1).</td>
+                            <td>@obj.Name</td>
+                            <td>@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                            @{noOfAttendees = 0;}
+                            @foreach (var att in Model.Attendees.Where(a => a.EventId == obj.Id))
+                            {
+                                @if (@att.ParticipantCount == null)
+                                {
+                                    noOfAttendees += 1;
+                                }
+                                else
+                                {
+
+                                    n = (int)att.ParticipantCount;
+                                    noOfAttendees += n;
+
+                                }
+                            }
+                            <td>
+                                @noOfAttendees
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
+                                        OSAVÕTJAD
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
 
                         }
                     </tbody>

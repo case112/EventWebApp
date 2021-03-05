@@ -7,5 +7,6 @@ namespace EventWebApp.Models.ViewModels
     {
         public IEnumerable<Event> EventsPast { get; set; }
         public IEnumerable<Event> EventsFuture { get; set; }
+        public IEnumerable<Attendee> Attendees { get; set; }
     }
 }

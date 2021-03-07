@@ -39,8 +39,8 @@ namespace EventWebApp.Controllers
                 _db.SaveChanges();
                 return Redirect("~/");
             }
-            return View(obj);
 
+            return View(obj);
         }
 
         // GET Event Details
@@ -59,15 +59,11 @@ namespace EventWebApp.Controllers
 
             var EventAttendeeViewModel = new EventVM
             {
-
                 Events = _db.Events.Where(e => e.Id == id),
                 Attendees = _db.Attendees.Where(a => a.EventId == id)
-
             };
 
-
             return View(EventAttendeeViewModel);
-
         }
 
         //POST Event Delete

@@ -28,7 +28,7 @@ namespace EventWebApp.Models
         public string Location { get; set; }
 
         [DisplayName("Lisainfo")]
-        [StringLength(1000, ErrorMessage = "Maksimaalne pikkus on 1000 tähemärki.")]
+        [StringLength(1000)]
         public string Details { get; set; }
 
     }

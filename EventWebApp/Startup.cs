@@ -16,8 +16,6 @@ using Microsoft.Extensions.Hosting;
 namespace EventWebApp
 {
 
-    
-
     public class Startup
     {
         public Startup(IConfiguration configuration)

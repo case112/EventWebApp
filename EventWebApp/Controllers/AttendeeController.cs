@@ -36,11 +36,9 @@ namespace EventWebApp.Controllers
                 return NotFound();
             }
 
-
             ViewData["EventId"] = eventId;
 
             return View();
-
         }
 
         //POST Attendee Create
@@ -48,7 +46,6 @@ namespace EventWebApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(int? eventId, Attendee obj)
         {
-
 
             if (ModelState.IsValid)
             {
@@ -60,7 +57,6 @@ namespace EventWebApp.Controllers
             ViewData["EventId"] = eventId;
 
             return View(obj);
-
         }
 
         //POST Attendee Delete
@@ -75,7 +71,6 @@ namespace EventWebApp.Controllers
 
             _db.Attendees.Remove(obj);
             _db.SaveChanges();
-
 
             return Redirect(Request.Headers["Referer"].ToString());
         }
@@ -96,7 +91,6 @@ namespace EventWebApp.Controllers
             }
             
             return View(obj);
-
         }
 
 
@@ -113,10 +107,7 @@ namespace EventWebApp.Controllers
             }
 
             return Redirect("~/");
-
         }
-
-
 
     }
 }

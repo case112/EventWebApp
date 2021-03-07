@@ -131,7 +131,7 @@
                 idCode.style.display = "none";
                 businessCode.style.display = "flex";
                 participantCount.style.display = "flex";
-                // reset form
+                // reset form 
                 attendeeForm.reset();
                 // set value for IsBusiness 
                 document.getElementById("is-business").checked = true;
@@ -139,7 +139,7 @@
             }
         }
 
-        function validateParticipant() {
+        function validateParticipantCount() {
             var x = document.forms["createAttendee"]["ParticipantCount"].value;
             if (x < 1 && document.getElementById("business-radio").checked) {
                 $("#participant-count-span").text("Sisesta külastajate arv.");
@@ -165,17 +165,12 @@
             }
         }
 
-
         window.addEventListener("DOMContentLoaded", function (event) {
             document.getElementById('business-radio').addEventListener("change", showHide);
             document.getElementById('person-radio').addEventListener("change", showHide);
             document.getElementById('create-attendee').addEventListener("submit", () => {
-                ((validateParticipant() & validateLastName() & maxStringLength()) == 1)
+                ((validateParticipantCount() & validateLastName() & maxStringLength()) == 1)
             });
         });</script>
-
-
-
-
 
 }

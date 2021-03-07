@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Osavõtjad";
     var id = @ViewData["EventIdFromUrl"];
+    DateTime modelDate = DateTime.Now;
+    DateTime dateNow = DateTime.Now;
+    int rowNo = 0;
 }
 
 <partial name="_Header" />
@@ -13,17 +16,10 @@
             <h2 class="text-primary-50 pl-3 add-event-h">Ürituse info</h2>
         </div>
 
-
         <div class="modal-body">
-            @{
-                DateTime modelDate = DateTime.Now;
-                DateTime dateNow = DateTime.Now;
-                int rowNo = 0;
-            }
             @foreach (var obj in Model.Events)
             {
                 modelDate = obj.StartDate;
-
 
                 <table class="table table-borderless event-table">
                     <tbody>
@@ -49,14 +45,13 @@
                         </tbody>
                 </table>
 
-
             }
+
         </div>
         <div class="form-group row">
             <h2 class="text-primary-50 pl-3 add-event-h">@ViewData["Title"]</h2>
         </div>
         <div class="modal-body">
-
 
             @if (modelDate < dateNow && Model.Attendees.Count() > 0)
             {
@@ -76,8 +71,6 @@
                         }
                     </tbody>
                 </table>
-
-
 
             }
             else if (modelDate > dateNow && Model.Attendees.Count() > 0)
@@ -106,12 +99,10 @@
                                         </button>
                                     </form>
                                 </td>
-
                             </tr>
                         }
                     </tbody>
                 </table>
-
 
             }
             else
@@ -126,12 +117,9 @@
                 <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Tagasi avalehele</a>
             </div>
 
-
         </div>
     </div>
 
-
-
-    </div>
+</div>
 
 

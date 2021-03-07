@@ -9,14 +9,11 @@ namespace EventWebAppTests
         [Fact]
         public void DateCanBeFutureOnly()
         {
-            // arrange
             var value = DateTime.Now.Date.AddDays(1);
             var attrib = new DateFutureOnlyAttribute();
 
-            // act
             var result = attrib.IsValid(value);
 
-            // assert
             Assert.True(result);
         }
     }

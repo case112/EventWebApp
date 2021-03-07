@@ -13,7 +13,6 @@ namespace EventWebApp.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly ApplicationDbContext _db;
 
         public HomeController(ApplicationDbContext db)
@@ -32,6 +31,7 @@ namespace EventWebApp.Controllers
                 EventsFuture = _db.Events.Where(f => f.StartDate > DateTime.Now).OrderBy(p => p.StartDate),
                 Attendees = _db.Attendees
             };
+
             return View(EventsInPastAndFutureViewModel);
         }
 

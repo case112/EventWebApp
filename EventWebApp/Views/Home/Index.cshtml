@@ -34,52 +34,69 @@
                     <tbody>
                         @foreach (var obj in Model.EventsFuture)
                         {
-                        <tr>
-                            <td scope="row">@(rowNo1 += 1).</td>
-                            <td>
-                                <div class="row">
-                                    <a class="event-name-link" href="@Url.Action("Create", "Attendee", new { eventId = obj.Id })">
-                                        @obj.Name
-                                    </a>
-                                    <a href="@Url.Action("Create", "Attendee", new { eventId = obj.Id })">
-                                        <div class="add-obj">
-                                            <img class="add-img" src="~/images/plus.svg" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
-                            @{noOfAttendees = 0;}
-                            @foreach (var att in Model.Attendees.Where(a => a.EventId == obj.Id))
-                            {
-                                @if (@att.ParticipantCount == null)
+                            <tr>
+                                <td scope="row">@(rowNo1 += 1).</td>
+                                <td>
+                                    <div class="row">
+                                        <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
+                                            @obj.Name
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                @{noOfAttendees = 0;}
+                                @foreach (var att in Model.Attendees.Where(a => a.EventId == obj.Id))
                                 {
-                                    noOfAttendees += 1;
+                                    @if (@att.ParticipantCount == null)
+                                    {
+                                        noOfAttendees += 1;
+                                    }
+                                    else
+                                    {
+                                        n = (int)att.ParticipantCount;
+                                        noOfAttendees += n;
+                                    }
+                                }
+
+                                @if (noOfAttendees == 0)
+                                {
+                                    <td>
+                                        -
+                                    </td>
+
                                 }
                                 else
                                 {
-
-                                    n = (int)att.ParticipantCount;
-                                    noOfAttendees += n;
-
+                                    <td>
+                                        @noOfAttendees
+                                    </td>
                                 }
-                            }
-                            <td>
-                                @noOfAttendees
-                            </td>
-                            <td>
-                                <div class="row">
-                                    <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
-                                        OSAVÕTJAD
-                                    </a>
-                                    <form asp-controller="Event" asp-action="Delete" asp-route-Id="@obj.Id">
-                                        <button type="submit" class="delete-obj">
-                                            <img class="remove-img" src="~/images/remove.svg" />
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+
+                                <td>
+                                    <div class="row">
+                                        <div class="tooltip2">
+                                            <span class="tooltiptext2">Lisa osavõtja</span>
+                                            <a href="@Url.Action("Create", "Attendee", new { eventId = obj.Id })">
+                                                <div class="add-obj">
+                                                    <img class="add-img" src="~/images/plus.svg" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="tooltip2">
+                                            <span class="tooltiptext2">Kustuta üritus</span>
+                                            <form asp-controller="Event" asp-action="Delete" asp-route-Id="@obj.Id">
+                                                <button type="submit" class="delete-obj">
+                                                    <img class="remove-img" src="~/images/remove.svg" />
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
 
                         }
                     </tbody>
@@ -90,6 +107,14 @@
                 <br />
                 <p class="index-table-p">Tulevased üritused puuduvad</p>
             }
+
+            <br />
+            <div>
+                <a class="add-event" asp-controller="Event" asp-action="Create">
+                    LISA ÜRITUS
+                </a>
+            </div>
+
         </div>
     </div>
     <div class="card col card-2">
@@ -103,36 +128,47 @@
                     <tbody>
                         @foreach (var obj in Model.EventsPast)
                         {
-                        <tr>
-                            <td scope="row">@(rowNo2 += 1).</td>
-                            <td>@obj.Name</td>
-                            <td>@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
-                            @{noOfAttendees = 0;}
-                            @foreach (var att in Model.Attendees.Where(a => a.EventId == obj.Id))
-                            {
-                                @if (@att.ParticipantCount == null)
+                            <tr>
+                                <td scope="row">@(rowNo2 += 1).</td>
+                                <td>@obj.Name</td>
+                                <td>@obj.StartDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                @{noOfAttendees = 0;}
+                                @foreach (var att in Model.Attendees.Where(a => a.EventId == obj.Id))
                                 {
-                                    noOfAttendees += 1;
+                                    @if (@att.ParticipantCount == null)
+                                    {
+                                        noOfAttendees += 1;
+                                    }
+                                    else
+                                    {
+
+                                        n = (int)att.ParticipantCount;
+                                        noOfAttendees += n;
+
+                                    }
+                                }
+
+                                @if (noOfAttendees == 0)
+                                {
+                                    <td>
+                                        -
+                                    </td>
+
                                 }
                                 else
                                 {
-
-                                    n = (int)att.ParticipantCount;
-                                    noOfAttendees += n;
-
+                                    <td>
+                                        @noOfAttendees
+                                    </td>
                                 }
-                            }
-                            <td>
-                                @noOfAttendees
-                            </td>
-                            <td>
-                                <div class="row">
-                                    <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
-                                        OSAVÕTJAD
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                                <td>
+                                    <div class="row">
+                                        <a class="participant-link" asp-controller="Event" asp-action="Details" asp-route-Id="@obj.Id">
+                                            OSAVÕTJAD
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
 
                         }
                     </tbody>

@@ -261,3 +261,35 @@ input[type=radio] {
     color: #343a40;
     font-weight: 700;
 }
+
+.tooltip2 {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.tooltip2 .tooltiptext2 {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(55, 55, 55);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip2:hover .tooltiptext2 {
+    visibility: visible;
+}
+
+.add-event {
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(138, 138, 138);
+    font-size: small;
+}

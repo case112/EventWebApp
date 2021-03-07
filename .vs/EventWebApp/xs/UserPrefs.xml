@@ -1,31 +1,29 @@
 ﻿<Properties StartupConfiguration="{CA2EE378-672B-4A2E-93BE-A6C35243A62C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EventWebApp/Models/Attendee.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EventWebAppTests/BasicTests.cs">
     <Files>
-      <File FileName="EventWebApp/Views/Event/Details.cshtml" Line="100" Column="41" />
-      <File FileName="EventWebApp/Views/Shared/_Layout.cshtml" />
-      <File FileName="EventWebApp/Views/Home/Index.cshtml" />
-      <File FileName="EventWebApp/wwwroot/css/site.css" />
-      <File FileName="EventWebApp/Models/Attendee.cs" Line="1" Column="1" />
+      <File FileName="EventWebApp/Controllers/AttendeeController.cs" Line="1" Column="1" />
+      <File FileName="EventWebAppTests/UnitTest.cs" Line="21" Column="10" />
+      <File FileName="EventWebAppTests/BasicTests.cs" Line="23" Column="74" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EventWebApp" expanded="True">
             <Node name="EventWebApp" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="ViewModels" expanded="True" />
-                <Node name="Attendee.cs" selected="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Attendee" expanded="True" />
-                <Node name="Event" expanded="True" />
-                <Node name="Home" expanded="True" />
-                <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-                <Node name="images" expanded="True" />
+              <Node name="Dependencies" expanded="True" />
+            </Node>
+            <Node name="EventWebAppTests" expanded="True">
+              <Node name="BasicTests.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="EventWebApp" expanded="True">
+            <Node name="EventWebAppTests" expanded="True">
+              <Node name="EventWebAppTests" expanded="True">
+                <Node name="BasicTests" expanded="True" />
               </Node>
             </Node>
           </Node>

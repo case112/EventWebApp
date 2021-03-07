@@ -21,21 +21,18 @@ namespace EventWebApp.Controllers
             _db = db;
         }
 
-        // GET Index with list of Events
+        // GET Index with Past and future events + Attendees
         public IActionResult Index()
         {
             IEnumerable<Event> objList = _db.Events;
 
-            var EventPastFutureViewModel = new EventPastFutureVM
+            var EventsInPastAndFutureViewModel = new EventsInPastAndFutureVM
             {
-
                 EventsPast = _db.Events.Where(p => p.StartDate < DateTime.Now).OrderByDescending(p => p.StartDate),
                 EventsFuture = _db.Events.Where(f => f.StartDate > DateTime.Now).OrderBy(p => p.StartDate),
                 Attendees = _db.Attendees
-
-
             };
-            return View(EventPastFutureViewModel);
+            return View(EventsInPastAndFutureViewModel);
         }
 
 

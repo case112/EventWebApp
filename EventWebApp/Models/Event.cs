@@ -19,7 +19,7 @@ namespace EventWebApp.Models
         [DisplayName("Toimumisaeg")]
         [Required(ErrorMessage = "See on kohustuslik väli!")]
         [DateFutureOnly(ErrorMessage = "Ürituse toimumisaeg peab olema tulevikus!")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 

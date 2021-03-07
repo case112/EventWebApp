@@ -4,10 +4,16 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EventWebApp" expanded="True">
-            <Node name="EventWebApp" expanded="True" />
-            <Node name="EventWebAppTests" expanded="True">
-              <Node name="UnitTests.cs" selected="True" />
+            <Node name="EventWebApp" expanded="True">
+              <Node name="Views" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True">
+                  <Node name="site.css" selected="True" />
+                </Node>
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
             </Node>
+            <Node name="EventWebAppTests" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -29,7 +35,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="/Users/oskar/Desktop/github/EventWebApp/EventWebApp/CultureInfo/Culture.cs" relfile="EventWebApp/CultureInfo/Culture.cs" line="8" column="1" />
-      <Breakpoint enabled="false" file="/Users/oskar/Desktop/github/EventWebApp/EventWebApp/Controllers/EventController.cs" relfile="EventWebApp/Controllers/EventController.cs" line="36" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
